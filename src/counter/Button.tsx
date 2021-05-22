@@ -1,15 +1,18 @@
 
 type ButtonPropsType = {
-    counter: number
     name: string
-    changeCount: () => void
+    onClick: () => void
     disable: boolean
 }
 
 export function Button(props: ButtonPropsType) {
 
     return (
-        <button className='button'  disabled={props.disable} onClick={props.changeCount} >{props.name}</button>
+        <button
+            className='button'
+            disabled={props.disable}
+            onClick={props.onClick}
+        >{props.name}</button>
     );
 }
 

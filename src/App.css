@@ -12,30 +12,42 @@
   display: inline-block;
   cursor: pointer;
   border: 3px solid #12B6F9;
-  width: 250px;
-  height: 130px;
+  width: 300px;
+  height: 200px;
   text-align: center;
   border-radius: 5px;
 }
 
 .value{
-  border: 1px solid #12B6F9;
   display: inline-block;
   margin-top: 20px;
   justify-content: center;
-  font: bold 30px/30px Arial, Tahoma, sans-serif; 
-  background: #12B6F9;
+  font: bold 25px/25px Arial, Tahoma, sans-serif; 
   width:  150px;
-	height: 30px;
+	height: 50px;
   text-align: center;
   border-radius: 5px;
+  background: #12B6F9;
 }
+
+.bloc{
+    margin-top: 10px;
+    border: 1px solid #12B6F9;
+    display: inline-block;
+    justify-content: center;
+    background: #12B6F9;
+    border-radius: 5px;
+    width: 150px;
+    height: 100px;
+   
+  }
+
 
 .buttons{
   border: 1px solid #12B6F9;
   display: inline-block;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
   background: #4a545c;
   border-radius: 5px;
   height: 30px;
@@ -43,6 +55,7 @@
 
 
 .button{
+  display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 5px;
@@ -54,20 +67,39 @@
   transition: 0.2s; 
 }
 
-
-  
-
 .submission{
   border: 1px solid #ec3b05;
-  display: inline-block;
   margin-top: 20px;
   justify-content: center;
-  font: bold 40px/40px Arial, Tahoma, sans-serif; 
+  font: bold 30px/30px Arial, Tahoma, sans-serif; 
   background: #ec3b05;
   width:  150px;
-	height: 40px;
+	height: 30px;
   text-align: center;
   border-radius: 50%;
+}
+
+
+.customization{
+  display: inline-block;
+  cursor: pointer;
+  border: 3px solid #12B6F9;
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  border-radius: 5px;
+
+  margin-top: 20px;
+  justify-content: center;
+  font: bold 15px/15px Arial, Tahoma, sans-serif; 
+}
+
+.maxValue{
+  padding-top: 10px;
+}
+
+.mixValue{
+  padding-top: 10px;
 }
 
 

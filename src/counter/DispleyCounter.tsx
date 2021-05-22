@@ -4,12 +4,12 @@ import './App.css';
 
 
 type DispleyTypeProps = {
-    counter: number
+    value: number
 };
 
 
 export function DispleyCounter(props: DispleyTypeProps) {
     return (
-        <div className={props.counter === 3 ? 'con' : 'value'}></div>
+        <div className={props.value === 3 ? 'con' : 'value'}></div>
     );
 };
