@@ -1,0 +1,147 @@
+*{
+  background-color: rgb(41, 44, 54);
+}
+.App {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
+  height: 400px;
+ 
+}
+
+.Settings {
+  display: inherit;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 400px;
+  height: 380px;
+  border: 2px solid #7ddcfd;
+  border-radius: 15px;
+  margin: auto;
+  color: #7ddcfd;
+  font-size: 20px;
+}
+
+.Input {
+  word-wrap: anywhere;
+  width: 70px;
+  height: 40px;
+  font-size: 20px;
+  background-color: rgb(41, 44, 54);
+  color: #7ddcfd;
+  text-align: center;
+  border: 2px solid #7ddcfd;
+  border-radius: 10px;
+  outline: none;
+}
+
+.Counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 400px;
+  height: 380px;
+  border: 2px solid #7ddcfd;
+  border-radius: 15px;
+  margin: auto;
+  color: #7ddcfd;
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.DataBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 200px;
+  width: 340px;
+  border: 2px solid #7ddcfd;
+  border-radius: 15px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.StartMessageStyle {
+  font-size: 30px;
+  text-align: center;
+}
+
+.EditModeStyle {
+  font-size: 30px;
+  text-align: center;
+}
+
+.ErrorStyle {
+  color: red;
+  font-size: 30px;
+  text-align: center;
+}
+
+.MaxValueStyle {
+  color: red;
+  font-size: 120px;
+}
+
+.InputBlock {
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.InputError {
+  border: 2px solid red;
+}
+
+.ButtonsBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 340px;
+  height: 90px;
+  border: 2px solid #7ddcfd;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.ButtonsBlock button {
+  color: rgb(41, 44, 54);
+  font-size: 20px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #7ddcfd;
+  border-radius: 10px;
+  background-color: #7ddcfd;
+  font-weight: bold;
+}
+
+.ButtonsBlock button:active {
+  color: rgb(41, 44, 54);
+  font-size: 20px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #2bcafd;
+  border-radius: 10px;
+  background-color: #2bcafd;
+}
+
+.ButtonsBlock button:disabled {
+  color: rgb(41, 44, 54);
+  font-size: 20px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #3e6b80;
+  border-radius: 10px;
+  background-color: #3e6b80;
+}

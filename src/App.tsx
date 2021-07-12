@@ -1,77 +1,68 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import './App.css';
-import { Button } from './counter/Button';
-import { Counter } from './counter/Counter';
-import { counterVale, NumberMaxOfSettings, NumberMinOfSettings } from './myConst';
-import { SettingsMenu } from './SettingsMenu';
+import React from 'react';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import s from './App.module.css';
+import { Counter } from './components/counter/Counter';
+import { AppStateType, store } from './redux/store';
+import { increaseCountAC, onSetHandlerAC, handleOnChangeMaxAC, handleOnChangeMinAC, resetCountAC } from './redux/actionCreators';
+import { saveState } from './utils/localstorage-utils';
+import { Settings } from './components/settings/Settings';
 
+export const App = () => {
 
+  const {
+    maxValue,
+    minValue,
+    value,
+    editMode,
+    error,
+    start,
+  } = useSelector((state: AppStateType) => state.counter);
+  const dispatch = useDispatch();
 
+  const onSetClickHandler = useCallback(() => {
+    dispatch(onSetHandlerAC())
+    saveState({
+      counter: store.getState().counter
+    })
+  }, [dispatch]);
 
-export function App() {
+  const onIncClickHandler = useCallback(() => {
+    dispatch(increaseCountAC())
+  }, [dispatch]);
 
-  const [counter, setCounter] = useState(0);
+  const onResetClickHandler = useCallback(() => {
+    dispatch(resetCountAC())
+  }, [dispatch]);
 
-  const [max, setMax] = useState(5);
-  const [min, setMin] = useState(0);
+  const onMaxInputValueChangeHandler = useCallback((max: number) => {
+    dispatch (handleOnChangeMaxAC(max))
+  }, [dispatch]); 
 
-
-  const changeCount = (value: number) => {
-    setCounter(value)
-  };
-
-  const changeSettingsMax = (number: number) => {
-    setMax(number)
-  }
- const changeSettingsMin = (number: number) => {
-    setMin(number)
-  }
-
-  useEffect(() => {
-    let valueAcString = localStorage.getItem(counterVale);
-    if (valueAcString) {
-      let storedValue = JSON.parse(valueAcString)
-      setCounter(storedValue)
-    }
-  }, [])
-
-
-  useEffect(() => {
-    let NumberAcString = localStorage.getItem(NumberMaxOfSettings);
-    if (NumberAcString) {
-      let storedValue = JSON.parse(NumberAcString)
-      setMax(storedValue)
-    }
-  }, [])
-
-  useEffect(() => {
-    let NumberAcString = localStorage.getItem(NumberMinOfSettings);
-    if (NumberAcString) {
-      let storedValue = JSON.parse(NumberAcString)
-      setMin(storedValue)
-    }
-  }, [])
-
-  const save = () => {
-    localStorage.setItem(NumberMaxOfSettings, JSON.stringify(max))
-    localStorage.setItem(NumberMinOfSettings, JSON.stringify(min))
-  }
+  const onMinInputValueChangeHandler = useCallback((min: number) => {
+    dispatch (handleOnChangeMinAC(min))
+  }, [dispatch]);
 
   return (
-    <div className='App'>
+    <div className={s.App}>
       <Counter
-        counter={counter}
-        changeCount={changeCount}
-        min={min}
-        max={max}
-        
+        value={value}
+        error={error}
+        editMode={editMode}
+        maxValue={maxValue}
+        minValue={minValue}
+        onIncClickHandler={onIncClickHandler}
+        onResetClickHandler={onResetClickHandler}
+        start={start}
       />
-      <SettingsMenu
-        save={save}
-        max={max}
-        min={min}
-        changeSettingsMax={changeSettingsMax}
-        changeSettingsMin={changeSettingsMin}
+      <Settings
+      maxValue={maxValue}
+      minValue={minValue}
+      onMaxInputValueChangeHandler={onMaxInputValueChangeHandler}
+      onMinInputValueChangeHandler={onMinInputValueChangeHandler}
+      editMode={editMode}
+      error={error}
+      onSetClickHandler={onSetClickHandler}
       />
     </div>
   );
