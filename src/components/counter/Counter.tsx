@@ -24,7 +24,7 @@ export const Counter = React.memo((props: PropsType) => {
         onIncClickHandler,
         onResetClickHandler,
     } = props;
-// debugger
+    
     const valueV =
         start ? 'HELLO! Enter start value and press \'SET\''
             : (editMode ? (error ? 'Enter correct value and press \'SET\'': 'Press \'SET\'') : value);
